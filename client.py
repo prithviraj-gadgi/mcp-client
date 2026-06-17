@@ -24,7 +24,7 @@ async def main():
     tools = await client.get_tools()
     agent = create_agent(model="openai:gpt-4.1", tools=tools)
     math_response = await agent.ainvoke({"messages": "what's (3 + 5) x 12?"})
-    weather_response = await agent.ainvoke({"messages": "what is the weather in Bidar?"})
+    weather_response = await agent.ainvoke({"messages": "what is the weather in Bidar Karnataka?"})
 
     print(weather_response['messages'][-1].content)
     print(math_response['messages'][-1].content)
