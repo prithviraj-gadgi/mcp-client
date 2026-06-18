@@ -1,8 +1,10 @@
 import asyncio
 
+from agents import set_trace_processors
 from dotenv import load_dotenv
 from langchain.agents import create_agent
 from langchain_mcp_adapters.client import MultiServerMCPClient
+from langsmith.integrations.openai_agents_sdk import OpenAIAgentsTracingProcessor
 
 load_dotenv()
 
@@ -31,4 +33,5 @@ async def main():
 
 
 if __name__ == "__main__":
+    set_trace_processors([OpenAIAgentsTracingProcessor()])
     asyncio.run(main())
